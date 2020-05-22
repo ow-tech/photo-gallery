@@ -9,7 +9,7 @@ class Image(models.Model):
     # pub_date = models.DateTimeField(auto_now_add=True, default=date.today)
 
     def __str__ (self):
-        return self.imange_name
+        return self.image_name
 
     def save_image(self):
         self.save()
