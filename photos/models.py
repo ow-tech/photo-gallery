@@ -1,12 +1,14 @@
 from django.db import models
+import datetime as date
 
 class Image(models.Model):
     image_name = models.CharField(max_length=20)
     image_descrption = models.TextField()
-    # imange =
-    # location = models.ForeignKey('Location', on_delete=models.DO_NOTHING)
-    # category = models.ForeignKey('Category', on_delete=models.DO_NOTHING)
-    # pub_date = models.DateTimeField(auto_now_add=True, default=date.today)
+    image_pics = models.ImageField(upload_to = 'images',default="image missing")
+    location = models.ForeignKey('Location', on_delete=models.DO_NOTHING, null=True)
+    category = models.ForeignKey('Category', on_delete=models.DO_NOTHING, null=True)
+    pub_date =models.DateTimeField(auto_now_add=True)
+    #  models.DateTimeField('date published', default= Utc.now)
 
     def __str__ (self):
         return self.image_name

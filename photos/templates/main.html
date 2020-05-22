@@ -4,11 +4,11 @@
 
     <div class="container">
         <!-- looping through images -->
-        {% for image in images %}
+        {% for images_item in images %}
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <h2 class="text-center"> {{ images.image_name }} </h2>
-                <h2 class="text-center"> {{ images.image_description }} </h6>
+                <h2 class="text-center"> {{ images_item.image_name }} </h2>
+                <h2 class="text-center"> {{ images_item.image_descrption }} </h6>
             </div>
         </div>
         {% endfor %}
