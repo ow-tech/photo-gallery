@@ -28,6 +28,10 @@ class Image(models.Model):
     def search_by_category(cls, search_category):
         images = cls.objects.filter(category__category_name__icontains=search_category)
         return images
+    @classmethod
+    def get_image_by_id(cls, id):
+        image = cls.objects.filter(id=id).all()
+        return image
 
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
