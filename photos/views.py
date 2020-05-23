@@ -22,4 +22,4 @@ def image_by_id(request, image_id):
 
 def image_location(request, location):
     images = Image.filter_by_location(location)
-    return render(request, 'location.html', {'location_images': images})
+    return render(request, 'location.html', {'images': images})
