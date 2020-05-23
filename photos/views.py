@@ -15,3 +15,7 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+def image_by_id(request):
+    image = Image.get_image_by_id()
+    return render(request, 'single_image.html', {"image":image})
