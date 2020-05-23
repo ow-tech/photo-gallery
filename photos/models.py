@@ -30,8 +30,12 @@ class Image(models.Model):
         return images
     @classmethod
     def get_image_by_id(cls, id):
-        image = cls.objects.filter(id=id).all()
+        image = cls.objects.filter(id).all()
         return image
+    @classmethod
+    def filter_by_location(cls, location):
+        image_location = Image.objects.filter(location__name=location).all()
+        return image_location
 
 class Location(models.Model):
     location_name = models.CharField(max_length=30)

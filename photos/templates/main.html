@@ -14,7 +14,7 @@
                 <img src="{{images_item.image_pics.url}}" class="img-responsive" alt="Image">
             </div>
             <div>
-                <button></button>
+                <a href='{% url "single_image" images_item.id %}'><h5>view</h5></a>
             </div>
         </div>
         {% endfor %}
