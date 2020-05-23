@@ -5,8 +5,8 @@ class Image(models.Model):
     image_name = models.CharField(max_length=20)
     image_descrption = models.TextField()
     image_pics = models.ImageField(upload_to = 'images/',default="image missing")
-    location = models.ForeignKey('Location', on_delete=models.DO_NOTHING, null=True)
-    category = models.ForeignKey('Category', on_delete=models.DO_NOTHING, null=True)
+    location = models.ForeignKey('Location', on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
     pub_date =models.DateTimeField(auto_now_add=True)
     def __str__ (self):
         return self.image_name
@@ -26,7 +26,7 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls, search_category):
-        images = cls.objects.filter(category_icontains=search_category)
+        images = cls.objects.filter(category__category_name__icontains=search_category)
         return images
 
 class Location(models.Model):
