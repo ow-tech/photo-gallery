@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class ="container">
-    <h1>{{ images.image_name }}</h1>
-    <h5>{{ images.image_descrption}}</h5>
+    <a class="navbar-brand" href="{% url 'main' %}"><h6>Back</h6></a>
+   <img src="{{ images.image_pics.url}}" height ="500px" width="auto"> 
 
 </div>
 {% endblock %}
