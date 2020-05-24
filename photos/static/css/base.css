@@ -28,3 +28,11 @@
 .textwithBlurredBg:hover:not(img){
     opacity: 1;
 }
+#locations{
+    color:white;
+    font-family: 'Special Elite', cursive;
+    }
+#locations a{
+    margin: 5px;
+    text-align: center;
+}

@@ -3,7 +3,8 @@ from .models import Image, Category, Location
 
 def my_images (request):
     images = Image.all_images()
-    return render(request, "main.html",{"images":images})
+    locations = Location.get_locations()
+    return render(request, "main.html",{"images":images, "locations":locations})
 
 def search_results(request):
     if 'image' in request.GET and request.GET["image"]:

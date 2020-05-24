@@ -34,11 +34,11 @@ class Image(models.Model):
         return image
     @classmethod
     def filter_by_location(cls, location):
-        image_location = Image.objects.filter(location__name=location).all()
+        image_location = cls.objects.filter(location = location).all()
         return image_location
 
     class Meta:
-        ordering = ['date']
+        ordering = ['pub_date']
 
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
@@ -52,6 +52,10 @@ class Location(models.Model):
 
     def delete_category(self):
         self.delete()
+    @classmethod
+    def get_locations(cls,location):
+        locations = cls.objects.filter(location)
+        return locations
 
 
 class Category(models.Model):

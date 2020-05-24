@@ -43,7 +43,7 @@ class ImageTestClass(TestCase):
         Category.objects.all().delete()
 class TestLocation(TestCase):
     def setUp(self):
-        self.location = Location(name = 'Kenya')
+        self.location = Location(location_name = 'Kenya')
         self.location.save_location()
     def test_instance(self):
         self.assertTrue(isinstance(self.location, Location))
@@ -54,7 +54,7 @@ class TestLocation(TestCase):
     def test_update_location(self):
         new_location = 'Nairobi'
         self.location.update_location(self.location.id, new_location)
-        changed_location = Location.objects.filter(name='Nairobi')
+        changed_location = Location.objects.filter(location_name='Nairobi')
         self.assertTrue(len(changed_location) > 0)
     def test_delete_location(self):
         self.location.delete_location()
@@ -62,7 +62,7 @@ class TestLocation(TestCase):
         self.assertTrue(len(location) == 0)
 class CategoryTestClass(TestCase):
     def setUp(self):
-        self.category = Category(name='home')
+        self.category = Category(category_name='home')
         self.category.save_category()
 
     def test_instance(self):
