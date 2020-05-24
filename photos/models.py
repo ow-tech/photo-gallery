@@ -4,7 +4,7 @@ import datetime as date
 class Image(models.Model):
     image_name = models.CharField(max_length=20)
     image_descrption = models.TextField()
-    image_pics = models.ImageField(upload_to = 'images/',default="image missing")
+    image_pics = models.ImageField(upload_to = 'images/%Y/%n/%d', null=False)
     location = models.ForeignKey('Location', on_delete=models.CASCADE, null=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True)
     pub_date =models.DateTimeField(auto_now_add=True)
