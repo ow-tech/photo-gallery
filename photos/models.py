@@ -16,7 +16,7 @@ class Image(models.Model):
     
 
     def delete_image(self):
-        self.remove()
+        self.delete()
 
 
     @classmethod
@@ -37,6 +37,9 @@ class Image(models.Model):
         image_location = Image.objects.filter(location__name=location).all()
         return image_location
 
+    class Meta:
+        ordering = ['date']
+
 class Location(models.Model):
     location_name = models.CharField(max_length=30)
 
@@ -47,6 +50,9 @@ class Location(models.Model):
     def save_location(self):
         self.save()
 
+    def delete_category(self):
+        self.delete()
+
 
 class Category(models.Model):
     category_name = models.CharField(max_length=30)
@@ -56,5 +62,9 @@ class Category(models.Model):
     def __str__ (self):
         return self.category_name
 
+
     def save_category(self):
         self.save()
+
+    def delete_category(self):
+        self.delete()
