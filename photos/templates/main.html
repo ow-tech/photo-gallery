@@ -1,21 +1,23 @@
 {%extends 'base.html' %}
 {% block content %}
-{{block.super }}
-
-    <div class="container">
-        <!-- looping through images -->
-        <div class="row">
+{{block.super }}    
+    <diV class="container">
+        <div class="card-deck">
             {% for images_item in images %}
-            <div class="col-md-4">
-                <span>
-                    {{ images_item.image_name }}
-                    {{ images_item.image_descrption }}
-                    <img src="{{images_item.image_pics.url}}" class="img-responsive" alt="Image">
-                    <a href='{% url "single_image" images_item.id %}'><h5>view</h5></a>
-                </span>
-            </div>
+                <div class="card">
+                    <img src="{{ images_item.image_pics.url}}" class="card-img-top" alt="image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{images_item.image_name}}</h5>
+                        <a class="card-text" href='{% url "single_image" images_item.id %}'><p class="card-text">views</p></a>
+                        <a class="card-text" href='{% url "single_image" images_item.id %}'><p class="card-text">Details</p></a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{images_item.pub_date}}</small>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-        
-    </div>
+
+    </diV>
+
 {% endblock %}
