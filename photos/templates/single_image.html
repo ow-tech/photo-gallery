@@ -2,6 +2,7 @@
 {% block content %}
 <div class ="container">
     <a class="navbar-brand" href="{% url 'main' %}"><h6>Back</h6></a>
+    <p>{{images.image_descrption}}</p>
    <img src="{{ images.image_pics.url}}" height ="500px" width="auto"> 
 
 </div>

@@ -1,5 +1,6 @@
 from django.db import models
 import datetime as date
+from cloudinary.models import CloudinaryField
 
 class Image(models.Model):
     image_name = models.CharField(max_length=20)
@@ -53,8 +54,8 @@ class Location(models.Model):
     def delete_category(self):
         self.delete()
     @classmethod
-    def get_locations(cls,location):
-        locations = cls.objects.filter(location)
+    def get_locations(cls):
+        locations = cls.objects.filter()
         return locations
 
 
