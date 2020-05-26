@@ -2,32 +2,6 @@
     width: 500px;
     height: auto;
 }
-.textwithBlurredBg{
-    position:relative
-}
-.textwithBlurredBg img{
-    transition: 2s;
-}
-.textwithBlurredBg:hover img{
-    filter:blur(2px) brightness(60%);
-}
-.textwithBlurredBg :not(img){
-    position: absolute;
-    top: 30px;
-    z-index: 1;
-    color:#fff ;
-    text-align: center;
-    width: 100%;
-    opacity: 0;
-    transition: .3s;
-
-}
-.textwithBlurredBg h3{
-    top:50%
-}
-.textwithBlurredBg:hover:not(img){
-    opacity: 1;
-}
 #locations{
     color:white;
     font-family: 'Special Elite', cursive;
